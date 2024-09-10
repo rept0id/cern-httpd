@@ -101,6 +101,12 @@ Last-Modified: Thu, 03 Dec 1992 08:37:20 GMT
 
 Aside from the cool `Server: CERN/3.0A` and `Last-Modified: Thu, 03 Dec 1992 08:37:20 GMT`, we see the `Document follows` appendix in the first line, which is non-standard by today’s standards!
 
+### Logs
+
+I believe, the logs of this server are very interesting in themselves !
+
+You can find an example here : [doc/logs.md](./doc/logs.md)
+
 ## Configuration
 
 You can change the port by modifying the `PORT` value in the `.env` file.
