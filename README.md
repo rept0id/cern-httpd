@@ -47,13 +47,13 @@ sudo apt-get install make
 sudo docker-compose up -d --build
 ```
 
-Then, open your browser and navigate to `http://localhost`
-
 or 
 
 ```
 sudo make start
 ```
+
+Then, open your browser and navigate to `http://localhost`
 
 ## How to Stop
 
@@ -109,7 +109,7 @@ The `conf/httpd.conf` file is not meant to be configured, as it is loaded by thi
 
 The content of the `www` directory is what gets copied and acts as the server's root directory. You can modify the content there as you wish.
 
-### Resources
+## Resources
 
 - CERN HTTPd source code: [https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz](https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz)
 - First web site source code: [https://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html](https://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html)
