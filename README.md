@@ -1,4 +1,4 @@
-# cern-httpd
+# cern-httpd-2
 ![screenshot1](./doc/assets/img/screenshot1.png)
 
 **Ever wondered what the first web server looked like running?**
