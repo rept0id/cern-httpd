@@ -111,7 +111,7 @@ You can find an example here : [doc/logs.md](./doc/logs.md)
 
 You can change the port by modifying the `PORT` value in the `.env` file.
 
-The `conf/httpd.conf` file is not meant to be configured, as it is loaded by this very old software. However, if you feel inclined, you can still experiment with it.
+The `conf/httpd.conf` file is not meant to be configured, as it is loaded by this very old software. However, if you feel like, you can still experiment with it.
 
 The content of the `www` directory is what gets copied and acts as the server's root directory. You can modify the content there as you wish.
 
