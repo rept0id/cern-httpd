@@ -84,7 +84,7 @@ Not found - file doesn't exist or is read protected [even tried multi]
 CERN-HTTPD 3.0A
 ```
 
-### Document follows
+### "Document follows"
 
 Open a terminal and type `curl -I localhost`.
 
