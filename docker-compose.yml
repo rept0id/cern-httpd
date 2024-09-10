@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  cern-httpd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:${PORT}:80"
+    restart: always

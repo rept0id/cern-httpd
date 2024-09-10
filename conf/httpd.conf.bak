@@ -1,0 +1,7 @@
+ServerRoot /var/www
+
+ServerType StandAlone
+
+DNSLookup Off
+
+Pass /* /var/www/*
