@@ -47,6 +47,8 @@ sudo apt-get install make
 sudo docker-compose up -d --build
 ```
 
+Then, open your browser and navigate to `http://localhost`
+
 or 
 
 ```
@@ -65,7 +67,9 @@ or
 sudo make stop
 ```
 
-## Easter Egg
+## Easter Eggs
+
+### 404
 
 ![screenshot2](./doc/assets/img/screenshot2.png)
 
@@ -79,6 +83,31 @@ Not found - file doesn't exist or is read protected [even tried multi]
 
 CERN-HTTPD 3.0A
 ```
+
+### Document follows
+
+Open a terminal and type `curl -I localhost`.
+
+The `curl -I` command sends a request to the specified address, but instead of displaying the returned document, it shows information about the connection.
+
+```
+HTTP/1.0 200 Document follows
+Server: CERN/3.0A
+Date: Tue, 10 Sep 2024 10:59:09 GMT
+Content-Type: text/html
+Content-Length: 2217
+Last-Modified: Thu, 03 Dec 1992 08:37:20 GMT
+```
+
+Aside from the cool `Server: CERN/3.0A` and `Last-Modified: Thu, 03 Dec 1992 08:37:20 GMT`, we see the `Document follows` appendix in the first line, which is non-standard by today’s standards!
+
+## Configuration
+
+You can change the port by modifying the `PORT` value in the `.env` file.
+
+The `conf/httpd.conf` file is not meant to be configured, as it is loaded by this very old software. However, if you feel inclined, you can still experiment with it.
+
+The content of the `www` directory is what gets copied and acts as the server's root directory. You can modify the content there as you wish.
 
 ### Resources
 
