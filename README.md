@@ -115,6 +115,17 @@ The `conf/httpd.conf` file is not meant to be configured, as it is loaded by thi
 
 The content of the `www` directory is what gets copied and acts as the server's root directory. You can modify the content there as you wish.
 
+## Development
+
+Most of this project is simply a wrapper to make it work both locally and with Docker.
+
+For example, the `www` folder contains documents meant to be served.
+
+Few exceptions are those that deserve the most attention during development of this project :
+
+- The `deps` folder includes dependencies, such as a tarball of the original CERN httpd code (you can find the source below in "Resources").
+- The `patch` folder contains only the modified files necessary to make CERN httpd functional in modern environments. It includes updated copies of the original files, maintaining the same directory structure, but only for the files that have changed. To apply the patch, copy the contents of the `patch` folder into a directory containing the original CERN httpd source code. This will update the source code to ensure compatibility with today's systems. (This process is part of what the Docker wrapper handles, among other tasks.)
+
 ## Resources
 
 - CERN HTTPd source code: [https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz](https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz)
