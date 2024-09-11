@@ -1,2 +1,5 @@
 *.html linguist-vendored
 *.sh linguist-vendored
+
+patch/*.c linguist-language=C
+patch/*.h linguist-language=C
