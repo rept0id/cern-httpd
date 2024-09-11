@@ -6,5 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "127.0.0.1:${PORT}:80"
+      - "${HOST}:${PORT}:80"
     restart: always
+    volumes:
+      - ./www:/var/www

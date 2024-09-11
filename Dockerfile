@@ -1,10 +1,35 @@
-# Use a Debian-based image as a base
 FROM debian:bullseye
 
-# Install necessary dependencies and add support for 32-bit architecture
-RUN dpkg --add-architecture i386 && \
-    apt-get update && \
-    apt-get install -y \
+### # # ###
+
+RUN mkdir /opt/w3c-httpd/
+
+### # # ###
+
+COPY ./conf/httpd.conf /etc/httpd.conf
+
+COPY ./www /var/www
+
+COPY ./src/w3c-httpd-3.0A.tar.gz /tmp/w3c-httpd-3.0A.tar.gz
+
+COPY ./src/w3c-httpd-3.0A-patch/patch.sh /opt/w3c-httpd/patch.sh
+
+### # # ###
+
+RUN tar -xvf /tmp/w3c-httpd-3.0A.tar.gz -C /opt/w3c-httpd
+RUN rm -rf /tmp/w3c-httpd-3.0A.tar.gz
+
+### # # ###
+
+RUN chmod +x /opt/w3c-httpd/patch.sh
+
+RUN chmod +x /opt/w3c-httpd/BUILD.SH
+
+### # # ###
+
+RUN dpkg --add-architecture i386
+RUN apt-get update
+RUN apt-get install -y \
     gcc \
     make \
     libssl-dev \
@@ -13,25 +38,18 @@ RUN dpkg --add-architecture i386 && \
     libcrypt-dev:i386 \
     && apt-get clean
 
-COPY ./conf/httpd.conf /etc/httpd.conf
+### # # ###
 
-COPY ./www /var/www
-
-COPY ./src/w3c-httpd-3.0A /opt/w3c-httpd
-COPY ./src/w3c-httpd-3.0A-patch/patch.sh /opt/w3c-httpd/patch.sh
-
-# Set the working directory inside the container
 WORKDIR /opt/w3c-httpd
+RUN ./patch.sh
+RUN ./BUILD.SH
+WORKDIR /
 
-# Run the patch script
-RUN chmod +x patch.sh && ./patch.sh
+### # # ###
 
-# Run the build script
-RUN chmod +x BUILD.SH && ./BUILD.SH
-
-# Expose port 80 for HTTP traffic
 EXPOSE 80
 
-# Command to start the server
-CMD ["./Daemon/linux/httpd", "-v"]
+### # # ###
+
+CMD ["/opt/w3c-httpd/Daemon/linux/httpd", "-v"]
 
