@@ -126,6 +126,10 @@ Few exceptions are those that deserve the most attention during development of t
 - The `deps` folder includes dependencies, such as a tarball of the original CERN httpd code (you can find the source below in "Resources").
 - The `patch` folder contains only the modified files necessary to make CERN httpd functional in modern environments. It includes updated copies of the original files, maintaining the same directory structure, but only for the files that have changed. To apply the patch, copy the contents of the `patch` folder into a directory containing the original CERN httpd source code. This will update the source code to ensure compatibility with today's systems. (This process is part of what the Docker wrapper handles, among other tasks.)
 
+# CERN notice
+
+This product includes computer software created and made available by CERN. This acknowledgement shall be mentioned in full in any product which includes the CERN computer software included herein or parts thereof.
+
 ## Resources
 
 - CERN HTTPd source code: [https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz](https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz)
